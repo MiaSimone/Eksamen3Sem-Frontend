@@ -1,3 +1,5 @@
+# To deploy this project just go to the root of the frontend project and type ./deploy.sh
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
