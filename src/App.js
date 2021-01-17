@@ -1,9 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
-import Hogwarts from "./Components/Hogwarts";
-import Characters from "./Components/Characters.js";
-import School from "./Components/School";
+import Member from "./Components/Member";
+import Admin from "./Components/Admin";
 import MyPage from "./Components/MyPage";
 import LoggingInOut from "./Components/Login-out";
 import NoMatch from "./Components/NoMatch";
@@ -23,16 +22,15 @@ function Header({isLoggedIn, loginMsg}) {
   return (
     <div>
       <ul className="header">
-        <li><NavLink exact activeClassName="active" to="/">Hogwarts</NavLink></li>
-        <li><NavLink activeClassName="active" to="/characters">Characters</NavLink></li>
-        <li><NavLink activeClassName="active" to="/school">School</NavLink></li>
+        <li><NavLink exact activeClassName="active" to="/">{loginMsg}</NavLink></li>
+        <li><NavLink activeClassName="active" to="/member">Member</NavLink></li>
+        <li><NavLink activeClassName="active" to="/admin">Admin</NavLink></li>
 
         {isLoggedIn && (
           <React.Fragment>
             <li><NavLink activeClassName="active" to="/mypage">My Page</NavLink></li>
           </React.Fragment>
         )}
-        <li><NavLink activeClassName="active" to="/login-out">{loginMsg}</NavLink></li>
       </ul>
     </div>
   );
@@ -59,24 +57,23 @@ function App() {
       <div className="content">
         <Switch>
           <Route exact path="/">
-            <Hogwarts />
-          </Route>
-          <Route path="/characters">
-            <Characters />
-          </Route>
-          <Route path="/school">
-            <School />
-          </Route>
-          <Route path="/mypage">
-            <MyPage isLoggedIn={isLoggedIn}/>
-          </Route>
-          <Route path="/login-out">
             <LoggingInOut 
               loginMsg={isLoggedIn ? "Logout" : "Login"}
               isLoggedIn={isLoggedIn}
               setLoginStatus={setLoginStatus}
             />
           </Route>
+          <Route path="/member">
+            <Member />
+          </Route>
+          <Route path="/admin">
+            <Admin />
+          </Route>
+
+          <Route path="/mypage">
+            <MyPage isLoggedIn={isLoggedIn}/>
+          </Route>
+
           <Route>
             <NoMatch />
           </Route>

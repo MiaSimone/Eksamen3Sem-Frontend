@@ -16,7 +16,6 @@ export default function MyPage({isLoggedIn}) {
                 <div className="row">
                     <div className="col-6">
                         <h2>My Page</h2>
-                        <p>Would have made a sorting hat from this api: https://www.potterapi.com/v1/sortingHat</p>
                     </div>    
                 </div>
             </div>

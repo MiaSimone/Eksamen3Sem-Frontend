@@ -1,6 +1,6 @@
 
 import React, { useState,useEffect } from "react"
-import facadeLoginout from "./facadeLoginout";
+import facadeLoginout from "../Facade/facadeLoginout";
 
 function LogIn({ login }) {
   const init = { username: "", password: "" };
@@ -44,6 +44,7 @@ function LoggedIn() {
           <div className="col-6">
             <h2>Data Received from server</h2>
             <h3>{dataFromServer}</h3>
+            {console.log(dataFromServer)}
           </div>
         </div>
       </div>
@@ -83,10 +84,10 @@ function LoggingInOut({isLoggedIn, loginMsg, setLoginStatus}) {
       <div className="row">
         <div className="col-9">
           {!isLoggedIn ? (
-          <>
-          <LogIn login={login} />
-          <p>{errorMsg}</p>
-          </>
+            <>
+              <LogIn login={login} />
+              <p>{errorMsg}</p>
+            </>
           ) :
           (<div>
             <LoggedIn />
